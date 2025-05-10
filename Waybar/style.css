@@ -1,0 +1,106 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Jet Brains Mono";
+    font-size: 14px;
+    min-height: 0;
+}
+
+#waybar {
+    background: transparent;
+    color: white;
+}
+
+
+#clock {
+    font-weight: bold;
+    padding: 0 3px;
+    margin: 0 2px;
+}
+
+#idle_inhibitor {	
+    padding-bottom: 3px;
+}
+
+
+/*Modifies the apperance of the "dots" in the center of the bar that indicate what workspace you are in*/
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: white;
+    border-top: 2px solid transparent;
+}
+
+#workspaces button.focused {
+    color: #c9545d;
+    border-top: 2px solid #c9545d;
+}
+
+
+#tray {
+	margin-top: 0px;
+	margin-right: 2px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+
+#pulseaudio {
+	margin-top: 0px;
+	margin-right: 9px;
+	margin-bottom: 0px;
+	margin-left: 5px;
+}
+
+
+#bluetooth {
+	margin-top: 0px;
+	margin-right: 2px;
+	margin-bottom: 0px;
+	margin-left: 2px;
+}
+
+
+#battery {
+	margin-top: 0px;
+	margin-right: 7px;
+	margin-bottom: 0px;
+	margin-left: 3px;
+	padding-top: 1px;
+}
+
+
+#power-options {
+	margin-top: 0px;
+	margin-right: 1px;
+	margin-bottom: 0px;
+	margin-left: 3px;
+}
+
+#custom-power{
+	margin-top: 0px;
+	margin-right: 5px;
+	margin-left: 2px;
+	margin-bottom: 0px;
+}
+
+#custom-reboot{
+	margin-top: 0px;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-bottom: 0px;
+}
+
+#custom-logout{
+	margin-top: 0px;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-bottom: 0px;
+}
+
+#custom-suspend{
+	margin-top: 0px;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-bottom: 0px;
+}

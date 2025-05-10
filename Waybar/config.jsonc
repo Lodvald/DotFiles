@@ -1,0 +1,203 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 30,
+	"spacing": 2,
+
+	"modules-left": ["clock","idle_inhibitor"],
+	"modules-center": ["hyprland/workspaces"],
+	"modules-right": ["tray","pulseaudio",/*backlight","network","custom/audio"*/"bluetooth","battery","group/power-options"],
+
+
+//Modules configurations
+
+//Works perfectly!
+"clock": {
+	"interval": 60,
+	"format": "{:%H:%M}",
+	"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar": {
+		            "mode": "month",
+			    "on-scroll": 1,
+			    "format": {
+				      "months": 	"<span color='#ffead3'><b>{}</b></span>",
+				      "days": 	   	"<span color='#ecc6d9'><b>{}</b></span>",	
+				      "weeks": 	   	"<span color='#99ffdd'><b>W{}</b></span>",
+				      "weekdays":  	"<span color='#ffcc66'><b>{}</b></span>",
+				      "today":          "<span color='#ff6699'><b><u>{}</u></b></span>"
+			    	      }
+	},
+	"actions":    {
+		      "on-click-right": "mode",
+		      "on-scroll-up": "shift_up",
+		      "on-scroll-down": "shift_down"
+		      }
+	},
+
+
+"idle_inhibitor": {
+	"format": "{icon}",
+	"format-icons": {
+			"activated": "",
+			"deactivated": ""
+			}
+		  },
+	
+
+//Works perfectly!
+"hyprland/workspaces": {
+		       "disable-scroll": false,
+		       "all-outputs": true,
+		       "icon-size": 150,
+		       "format": "{icon}",
+	               "format-icons": {
+			       	       "active": "",
+				       "empty": "",
+				       "default": ""
+				       },
+		       "sort-by":      "default"
+		       },
+
+		       
+//Group for power options
+"group/power-options":    {
+		     "orientation": "inherit",
+		     "drawer":    {
+			     	  "trasnsition-duration": 500,
+				  "transition-left-to-right": false,
+				  "children-class": "ofPower"
+		     		  },
+		     "modules":   [
+			     	  "custom/power",
+				  "custom/logout",
+				  "custom/reboot",
+				  "custom/suspend"
+		                  ]
+},
+
+//All of the options inside the Power-group above are listed below
+
+"custom/power":    {
+		   "format": "⏻",
+		   "tooltip": false,
+		   "on-click": "systemctl poweroff"
+		   },
+
+
+"custom/reboot":   {
+		   "format": "",
+		   "tooltip": false,
+		   "on-click": "reboot"
+		   },
+
+
+"custom/logout":    {
+		   "format": "󰍃",
+		   "tooltip": false,
+		   "on-click": "hyprctl dispatch exit"
+		   },
+
+
+"custom/suspend":  {
+		   "format": "",
+		   "tooltip": false,
+		   "on-click": "~/.config/waybar/suspend.sh"
+                   },
+
+
+"battery":    {
+	      "interval": 60,
+	      "format": "{icon}",
+	      "format-icons": {
+		      	      "default": ["","","","",""],
+			      "charging": ["󰢟","󰂇","󰢝","󰢞","󰂅"]
+
+	      },
+	      "tooltip": true,
+	      "tooltip-format": {
+		      		"timeTo": "Empty"
+	      			}
+	      }, 
+
+
+"bluetooth": {
+	     "format":  "󰂯",
+	     "format-connected": "󰂯",
+	     "format-disconnected": "boh",
+	     "formant-on": "cacca",
+	     "format-off": "pipi",
+	     "format-disabled": "󰂲",
+	     "on-click": "blueberry"
+	     },
+
+
+"network":   {
+	  "format-wifi": "",
+	  "format-ethernet": "󰈀",
+          "format-disconnected": "",
+	  "format-icons": "\f6aa, \f6ab, \f1eb",
+          "tooltip": true,
+          "tooltip-format": "{ifname}",
+          "on-click": "nm-applet"
+ 	     },
+
+"tray":      {
+	     "icon-size": 17,
+	     "show-passive-items": false 
+	     },
+
+//Works as intended, it's overlapping with the battery icon tho :(
+"pulseaudio": {
+	      "format": "{icon}",
+	      "format-icons": ["󰕿","",""],
+	      "format-muted": "",
+	      "scroll-step": 1,
+	      "max-volume": 100,
+	      "tooltip": true,
+	      "tooltip-format": "{volume}",
+	      "on-click": "pavucontrol"
+	      }
+}
+
+
+
+
+//from here it's the example taken from the wiki of the drawer object
+"group/the-power": {
+    "orientation": "inherit",
+    "drawer": {
+        "transition-duration": 500,
+//        "children-class": "not-power",
+        "transition-left-to-right": false
+    },
+    "modules": [
+        "custom/power", // First element is the "group leader" and won't ever be hidden
+        "custom/quit",
+        "custom/lock",
+        "custom/reboot"
+    ]
+},
+"custom/quit": {
+    "format": "󰗼",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch exit"
+},
+"custom/lock": {
+    "format": "󰍁",
+    "tooltip": false,
+    "on-click": "hyprlock"
+},
+"custom/reboot": {
+    "format": "󰜉",
+    "tooltip": false,
+    "on-click": "reboot"
+},
+"custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "shutdown now"
+}
+
+
+
+
